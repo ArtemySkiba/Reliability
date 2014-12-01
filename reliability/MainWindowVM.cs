@@ -234,7 +234,7 @@ namespace reliability
 
         private double calculateWk(int k)
         {
-            for (int i = 0; i < Q - 1; i++)
+            for (int i = 0; i <= Q - 1; i++)
             {
                 if (k >= (i - 1) * s + 1 && k <= M)
                 {
