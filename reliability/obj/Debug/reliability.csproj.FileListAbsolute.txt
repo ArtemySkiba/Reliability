@@ -24,3 +24,17 @@ D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\
 D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.csproj.GenerateResource.Cache
 D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability_MarkupCompile.lref
 D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.csprojResolveAssemblyReference.cache
+C:\Users\Artemy\Documents\Git\Reliability\reliability\bin\Debug\reliability.exe.config
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.exe
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.pdb
+C:\Users\Artemy\Documents\Git\Reliability\reliability\bin\Debug\reliability.exe
+C:\Users\Artemy\Documents\Git\Reliability\reliability\bin\Debug\reliability.pdb
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.csprojResolveAssemblyReference.cache
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\MainWindow.g.cs
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\App.g.cs
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability_MarkupCompile.cache
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability_MarkupCompile.lref
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\MainWindow.baml
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.g.resources
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.Properties.Resources.resources
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.csproj.GenerateResource.Cache

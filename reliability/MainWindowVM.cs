@@ -19,10 +19,10 @@ namespace reliability
 
         public MainWindowVM()
         {
-            generateXs();
             N = 10;
             M = 2;
             Q = 2;
+
             Lambda = 0.5;
             OnPropertyChanged("N");
             OnPropertyChanged("Lambda");
@@ -310,8 +310,19 @@ namespace reliability
 
         public List<List<int>> generateXs()
         {
-            String[] NMass = new []{"10","10","10"};
-            String[] MMass = new[] { "4", "5", "6" };
+            List<string> qs = new List<string>();
+            for (int i = 1; i <= Q; i++)
+            {
+                qs.Add(i.ToString());
+            }
+            String[] NMass = qs.ToArray();//Q
+
+            List<string> ns = new List<string>();
+            for (int i = 0; i <= s; i++)
+            {
+                ns.Add(i.ToString());
+            }
+            String[] MMass = ns.ToArray();//0 ..... S
 
             String[][] Help = new String[NMass.Length][];
             for (int i = 0; i < NMass.Length; i++)
@@ -321,7 +332,7 @@ namespace reliability
             foreach (String[] str in Help)
                 Variants = Variants == null ? str :
                     Variants.SelectMany(x => str, (x, y) => x + "  " + y).ToArray();
-
+            
             List<List<int>> array = new List<List<int>>();
             foreach (var variant in Variants)
             {
@@ -331,11 +342,11 @@ namespace reliability
                     tempResult.Add(Convert.ToInt32(v.ToString()));
                 }
                 array.Add(tempResult);
-                
+
             }
             return array;
         }
-
+        
     }
 
 }
