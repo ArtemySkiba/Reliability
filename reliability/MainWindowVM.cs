@@ -170,37 +170,36 @@ namespace reliability
                     //2.
                     if (firstTypeSystem)
                     {
-                        foreach (var xarray in XArray.Where(x => x.Sum() <= M))
+                        for (int k = 1; k <= M; k++)
                         {
-                            Zk.Add(new KeyValuePair<int, double>(xarray.Sum(), calculateZk(xarray)));
-                            Wk.Add(new KeyValuePair<int, double>(xarray.Sum(), calculateWk(xarray.Sum())));
+                            Zk.Add(new KeyValuePair<int, double>(k, calculateZk(k)));
+                            Wk.Add(new KeyValuePair<int, double>(k, calculateWk(k)));
                         }
-                        foreach (var xarray in XArray.Where(x => x.Sum() <= M))
+
+                        for (int k = 1; k <= M; k++)
                         {
-                            int k = xarray.Sum();
                             double result = Zk.FirstOrDefault(zk => zk.Key == k).Value * (a - k + 1);
                             var tempAk = new KeyValuePair<int, double>(k, result);
                             Ak.Add(tempAk);
                             var tempBk = new KeyValuePair<int, double>(k, Wk.FirstOrDefault(wk => wk.Key == k).Value * b);
-                            Bk.Add(tempBk);
-                            Ck.Add(new KeyValuePair<int, double>(k, tempAk.Value + tempBk.Value));
+                            Bk.Add(tempBk.Key == 0 ? new KeyValuePair<int, double>(k, N) : tempBk);
+                            Ck.Add(new KeyValuePair<int, double>(k, tempAk.Value + Bk.FirstOrDefault(bk => bk.Key == k).Value));
                         }
+                        T = calculateT();
                     }
                     if (secondTypeSystem)
                     {
-                        foreach (var xarray in XArray.Where(x => x.Sum() <= M))
+                        for (int k = 1; k <= M; k++)
                         {
-                            Yk.Add(new KeyValuePair<int, double>(xarray.Sum(), calculateYk(xarray.Sum())));
+                            Yk.Add(new KeyValuePair<int, double>(k, calculateYk(k)));
                         }
-                        foreach (var xarray in XArray.Where(x => x.Sum() <= M))
+                        for (int k = 1; k <= M; k++)
                         {
-                            int k = xarray.Sum();
                             AStarK.Add(new KeyValuePair<int, double>(k, Yk.FirstOrDefault(yk => yk.Key == k).Value * (a - k + 1)));
                             CStarK.Add(new KeyValuePair<int, double>(k, a - k + 1));
                         }
+                        T = calculateTSecond();
                     }
-
-                    T = calculateT();
 
                     MessageBox.Show(string.Format("T = {0}", T));
                 });
@@ -211,21 +210,26 @@ namespace reliability
 
         #region Methods
 
-        private double calculateZk(List<int> XArray)
+        private double calculateZk(int k)
         {
-            int k = XArray.Sum();
-
             if (k >= 1 && k <= s)
             {
                 return 1;
             }
-            double result = 1;
-            foreach (var x in XArray)
-            {
-                result *= combination(b, x);
-            }
-            return result * 1 / combination(a, k);
 
+            double result = 0;
+
+            foreach (var xarray in XArray.Where(x => x.Sum() == k))
+            {
+                double tempResult = 1;
+                for (int i = 1; i < Q; i++)
+                {
+                    tempResult *= combination(b, xarray[i]);
+                }
+                result += tempResult;
+            }
+            
+            return result * 1 / combination(a, k);
         }
 
         private double calculateWk(int k)
@@ -237,17 +241,18 @@ namespace reliability
                     return i;
                 }
             }
-            return 0;
+            throw new Exception("WTF");
         }
 
         private double calculateYk(int k)
         {
             double result = 0;
 
-            if (R >= 1 && R <= s)
+            if (k >= 1 && k <= R)
             {
                 return 1;
             }
+            
             for (int i = 0; i < a - k + 1; i++)
             {
                 result += Math.Pow(-1, i) * combination(a - k + 1, i) * combination(a - (R + 1) * i, k - (R + 1) * i);
@@ -301,6 +306,46 @@ namespace reliability
                 if (j != i)
                 {
                     result *= Ck.FirstOrDefault(ak => ak.Key == j).Value - Ck.FirstOrDefault(ak => ak.Key == i).Value;
+                }
+            }
+            return result;
+        }
+
+        private double calculateTSecond()
+        {
+            double result = 0;
+
+            for (int k = 1; k < M; k++)
+            {
+                for (int i = 1; i < k + 1; i++)
+                {
+                    result += getMultiplyAStark(k) / CStarK.FirstOrDefault(ck => ck.Key == i).Value * getMultiplyCStarC(k, i);
+                }
+            }
+
+            result += 1 / CStarK.FirstOrDefault(ck => ck.Key == 1).Value;
+
+            return result * 1 / Lambda;
+        }
+
+        private double getMultiplyAStark(int k)
+        {
+            double result = 1;
+            for (int j = 1; j < k; j++)
+            {
+                result *= AStarK.FirstOrDefault(ak => ak.Key == j).Value;
+            }
+            return result;
+        }
+
+        private double getMultiplyCStarC(int k, int i)
+        {
+            double result = 1;
+            for (int j = 1; j < k + 1; j++)
+            {
+                if (j != i)
+                {
+                    result *= CStarK.FirstOrDefault(ak => ak.Key == j).Value - CStarK.FirstOrDefault(ak => ak.Key == i).Value;
                 }
             }
             return result;
