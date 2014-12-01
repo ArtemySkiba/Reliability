@@ -1,0 +1,26 @@
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\bin\Debug\reliability.exe.config
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\bin\Debug\reliability.exe
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\bin\Debug\reliability.pdb
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\MainWindow.baml
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\MainWindow.g.cs
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\App.g.cs
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\reliability_MarkupCompile.cache
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\reliability.g.resources
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\reliability.Properties.Resources.resources
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\reliability.csproj.GenerateResource.Cache
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\reliability.exe
+c:\users\artemy\documents\visual studio 2013\Projects\reliability\reliability\obj\Debug\reliability.pdb
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\bin\Debug\reliability.exe.config
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.exe
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.pdb
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\bin\Debug\reliability.exe
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\bin\Debug\reliability.pdb
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\MainWindow.baml
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\MainWindow.g.cs
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\App.g.cs
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability_MarkupCompile.cache
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.g.resources
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.Properties.Resources.resources
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.csproj.GenerateResource.Cache
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability_MarkupCompile.lref
+D:\Dropbox\Магистратура\1 курс\Надёжность\reliability\reliability\obj\Debug\reliability.csprojResolveAssemblyReference.cache
