@@ -4,15 +4,26 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 D:\Dropbox\Магистратура\1 курс\Надёжность\проги\Reliability 02.12.2014\reliability\obj\Debug\
+=======
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\
+>>>>>>> 487169efa03527261078c061938f5605ca22562a
 reliability
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\Dropbox\Магистратура\1 курс\Надёжность\проги\Reliability 02.12.2014\reliability\App.xaml
 11151548125
 
 101972488484
+=======
+C:\Users\Artemy\Documents\Git\Reliability\reliability\App.xaml
+11151548125
+
+91278482591
+>>>>>>> 487169efa03527261078c061938f5605ca22562a
 15-227759281
 MainWindow.xaml;
 
