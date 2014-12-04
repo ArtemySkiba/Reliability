@@ -1,0 +1,13 @@
+﻿<Window x:Class="reliability.ReportViewreControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ReportViewreControl" Height="300" Width="300"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms">
+    <Grid>
+        <WindowsFormsHost>
+            <rv:ReportViewer x:Name="ReportViewer">
+                
+            </rv:ReportViewer>
+            </WindowsFormsHost>
+    </Grid>
+</Window>

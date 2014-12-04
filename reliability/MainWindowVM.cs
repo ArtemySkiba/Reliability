@@ -33,7 +33,7 @@ namespace reliability
             OnPropertyChanged("R");
 
             FirstTypeSystem = true;
-            
+
             Zk = new List<KeyValuePair<int, double>>();
             Yk = new List<KeyValuePair<int, double>>();
             Wk = new List<KeyValuePair<int, double>>();
@@ -42,6 +42,7 @@ namespace reliability
             Ck = new List<KeyValuePair<int, double>>();
             AStarK = new List<KeyValuePair<int, double>>();
             CStarK = new List<KeyValuePair<int, double>>();
+            ptResults = new List<PtResult>();
         }
 
         #endregion
@@ -122,7 +123,8 @@ namespace reliability
 
         public double T { get; set; }//среднее время жизни системы
         private List<double> pt;
-        
+        private List<PtResult> ptResults;
+
         #endregion
 
         #region Commands
@@ -195,10 +197,13 @@ namespace reliability
                         calculatePTSecond();
                     }
                     OnPropertyChanged("T");
+
+                    ReportViewreControl reportViewreControl = new ReportViewreControl(ptResults);
+                    //reportViewreControl.Show();
                 });
             }
         }
-        
+
         #endregion
 
         #region Methods
@@ -383,12 +388,12 @@ namespace reliability
             return array;
         }
 
-        private List<double> calculatePT()
+        private void calculatePT()
         {
             List<double> result = new List<double>();
             result.Add(1);
-            StringBuilder stringBuilder1 = new StringBuilder();
-            StringBuilder stringBuilder2 = new StringBuilder();
+            //StringBuilder stringBuilder1 = new StringBuilder();
+            //StringBuilder stringBuilder2 = new StringBuilder();
             for (double t = 0; result.Last() > 0.001; t += 0.001)
             {
                 double tempResult = 0;
@@ -402,21 +407,20 @@ namespace reliability
                 }
                 tempResult += Math.Exp(-Ck.Single(ck => ck.Key == 1).Value * Lambda * t);
                 result.Add(tempResult);
-                stringBuilder1.Append(t).AppendLine();
-                stringBuilder2.Append(tempResult).AppendLine();
+                //stringBuilder1.Append(t).AppendLine();
+                //stringBuilder2.Append(tempResult).AppendLine();
+                ptResults.Add(new PtResult { T = t, Value = tempResult });
             }
-            File.WriteAllText("result1.txt", stringBuilder1.ToString());
-            File.WriteAllText("result2.txt", stringBuilder2.ToString());
-
-            return result;
+            //File.WriteAllText("result1.txt", stringBuilder1.ToString());
+            //File.WriteAllText("result2.txt", stringBuilder2.ToString());
         }
 
-        private List<double> calculatePTSecond()
+        private void calculatePTSecond()
         {
             List<double> result = new List<double>();
             result.Add(1);
-            StringBuilder stringBuilder1 = new StringBuilder();
-            StringBuilder stringBuilder2 = new StringBuilder();
+            //StringBuilder stringBuilder1 = new StringBuilder();
+            //StringBuilder stringBuilder2 = new StringBuilder();
             for (double t = 0; result.Last() > 0.001; t += 0.001)
             {
                 double tempResult = 0;
@@ -430,13 +434,12 @@ namespace reliability
                 }
                 tempResult += Math.Exp(-CStarK.Single(ck => ck.Key == 1).Value * Lambda * t);
                 result.Add(tempResult);
-                stringBuilder1.Append(t).AppendLine();
-                stringBuilder2.Append(tempResult).AppendLine();
+                //stringBuilder1.Append(t).AppendLine();
+                //stringBuilder2.Append(tempResult).AppendLine();
+                ptResults.Add(new PtResult { T = t, Value = tempResult });
             }
-            File.WriteAllText("result1.txt", stringBuilder1.ToString());
-            File.WriteAllText("result2.txt", stringBuilder2.ToString());
-
-            return result;
+            //File.WriteAllText("result1.txt", stringBuilder1.ToString());
+            //File.WriteAllText("result2.txt", stringBuilder2.ToString());
         }
 
         #endregion
