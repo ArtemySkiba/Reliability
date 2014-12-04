@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.IO;
 using System.Linq;
 using System.Text;
-=======
-using System.Linq;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
 using System.Windows;
 using System.Windows.Input;
 
@@ -28,47 +24,16 @@ namespace reliability
             N = 10;
             M = 2;
             Q = 2;
-<<<<<<< HEAD
             R = 2;
-=======
-
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             Lambda = 0.5;
             OnPropertyChanged("N");
             OnPropertyChanged("Lambda");
             OnPropertyChanged("M");
             OnPropertyChanged("Q");
-<<<<<<< HEAD
             OnPropertyChanged("R");
 
             FirstTypeSystem = true;
             
-=======
-
-            FirstTypeSystem = true;
-            pt = new double[1000];
-            //XArray = new List<List<int>>();
-            //XArray.Add(new List<int> { 0 });
-            //XArray.Add(new List<int> { 1 });
-            //XArray.Add(new List<int> { 0, 1 });
-            //XArray.Add(new List<int> { 1, 0 });
-            //XArray.Add(new List<int> { 1, 1 });
-            //XArray.Add(new List<int> { 1, 0 , 0 });
-            //XArray.Add(new List<int> { 1, 0, 0 });
-            //XArray.Add(new List<int> { 0, 0, 1 });
-            //XArray.Add(new List<int> { 0, 1, 0, 0 });
-            //XArray.Add(new List<int> { 0, 0, 0, 1 });
-            //XArray.Add(new List<int> { 1, 2, 3 });
-            //XArray.Add(new List<int> { 1, 3, 4 });
-            //XArray.Add(new List<int> { 1, 1, 2 });
-            //XArray.Add(new List<int> { 2, 2, 1, 1 });
-            //XArray.Add(new List<int> { 3, 4, 2, 1 });
-            //XArray.Add(new List<int> { 3, 5, 2, 2 });
-            //XArray.Add(new List<int> { 1, 2, 6, 3 });
-            //XArray.Add(new List<int> { 3, 3, 2 });
-            //XArray.Add(new List<int> { 2, 3, 3 });
-
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             Zk = new List<KeyValuePair<int, double>>();
             Yk = new List<KeyValuePair<int, double>>();
             Wk = new List<KeyValuePair<int, double>>();
@@ -155,15 +120,9 @@ namespace reliability
         private List<KeyValuePair<int, double>> AStarK;
         private List<KeyValuePair<int, double>> CStarK;
 
-<<<<<<< HEAD
         public double T { get; set; }//среднее время жизни системы
         private List<double> pt;
         
-=======
-        private double T;//среднее время жизни системы
-        private double[] pt;
-
->>>>>>> 487169efa03527261078c061938f5605ca22562a
         #endregion
 
         #region Commands
@@ -201,7 +160,6 @@ namespace reliability
 
                         for (int k = 1; k <= M; k++)
                         {
-<<<<<<< HEAD
                             double result = Zk.Single(zk => zk.Key == k).Value * (a - k + 1);
                             Ak.Add(new KeyValuePair<int, double>(k, result));
                             Bk.Add(new KeyValuePair<int, double>(k, Wk.Single(wk => wk.Key == k).Value * b));
@@ -218,16 +176,6 @@ namespace reliability
                         T = calculateT();
                         //pt = 
                         calculatePT();
-=======
-                            double result = Zk.FirstOrDefault(zk => zk.Key == k).Value * (a - k + 1);
-                            var tempAk = new KeyValuePair<int, double>(k, result);
-                            Ak.Add(tempAk);
-                            var tempBk = new KeyValuePair<int, double>(k, Wk.FirstOrDefault(wk => wk.Key == k).Value * b);
-                            Bk.Add(tempBk.Key == 0 ? new KeyValuePair<int, double>(k, N) : tempBk);
-                            Ck.Add(new KeyValuePair<int, double>(k, tempAk.Value + Bk.FirstOrDefault(bk => bk.Key == k).Value));
-                        }
-                        T = calculateT();
->>>>>>> 487169efa03527261078c061938f5605ca22562a
                     }
                     if (secondTypeSystem)
                     {
@@ -237,7 +185,6 @@ namespace reliability
                         }
                         for (int k = 1; k <= M; k++)
                         {
-<<<<<<< HEAD
                             AStarK.Add(new KeyValuePair<int, double>(k, Yk.Single(yk => yk.Key == k).Value * (a - k + 1)));
                             CStarK.Add(new KeyValuePair<int, double>(k, a - k + 1));
                         }
@@ -252,19 +199,6 @@ namespace reliability
             }
         }
         
-=======
-                            AStarK.Add(new KeyValuePair<int, double>(k, Yk.FirstOrDefault(yk => yk.Key == k).Value * (a - k + 1)));
-                            CStarK.Add(new KeyValuePair<int, double>(k, a - k + 1));
-                        }
-                        T = calculateTSecond();
-                    }
-
-                    MessageBox.Show(string.Format("T = {0}", T));
-                });
-            }
-        }
-
->>>>>>> 487169efa03527261078c061938f5605ca22562a
         #endregion
 
         #region Methods
@@ -287,29 +221,17 @@ namespace reliability
                 }
                 result += tempResult;
             }
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             return result * 1 / combination(a, k);
         }
 
         private double calculateWk(int k)
         {
-<<<<<<< HEAD
             for (int q = 1; q <= M; q++)
             {
                 if ((k >= ((q - 1) * s + 1)) && (k <= q * s))
                 {
                     return q;
-=======
-            for (int i = 0; i <= Q - 1; i++)
-            {
-                if (k >= (i - 1) * s + 1 && k <= M)
-                {
-                    return i;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
                 }
             }
             throw new Exception("WTF");
@@ -323,13 +245,8 @@ namespace reliability
             {
                 return 1;
             }
-<<<<<<< HEAD
 
             for (int i = 0; i <= a - k + 1; i++)
-=======
-            
-            for (int i = 0; i < a - k + 1; i++)
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             {
                 result += Math.Pow(-1, i) * combination(a - k + 1, i) * combination(a - (R + 1) * i, k - (R + 1) * i);
             }
@@ -351,7 +268,6 @@ namespace reliability
         {
             double result = 0;
 
-<<<<<<< HEAD
             for (int k = 1; k <= M; k++)
             {
                 for (int i = 1; i <= k + 1; i++)
@@ -363,33 +279,14 @@ namespace reliability
             result += 1 / Ck.Single(ck => ck.Key == 1).Value;
 
             return result / Lambda;
-=======
-            for (int k = 1; k < M; k++)
-            {
-                for (int i = 1; i < k + 1; i++)
-                {
-                    result += getMultiplyAk(k) / Ck.FirstOrDefault(ck => ck.Key == i).Value * getMultiplyCC(k, i);
-                }
-            }
-
-            result += 1 / Ck.FirstOrDefault(ck => ck.Key == 1).Value;
-
-            return result * 1 / Lambda;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
         }
 
         private double getMultiplyAk(int k)
         {
             double result = 1;
-<<<<<<< HEAD
             for (int j = 1; j <= k; j++)
             {
                 result *= Ak.Single(ak => ak.Key == j).Value;
-=======
-            for (int j = 1; j < k; j++)
-            {
-                result *= Ak.FirstOrDefault(ak => ak.Key == j).Value;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             }
             return result;
         }
@@ -397,19 +294,11 @@ namespace reliability
         private double getMultiplyCC(int k, int i)
         {
             double result = 1;
-<<<<<<< HEAD
             for (int j = 1; j <= k + 1; j++)
             {
                 if (j != i)
                 {
                     result *= Ck.Single(ak => ak.Key == j).Value - Ck.Single(ak => ak.Key == i).Value;
-=======
-            for (int j = 1; j < k + 1; j++)
-            {
-                if (j != i)
-                {
-                    result *= Ck.FirstOrDefault(ak => ak.Key == j).Value - Ck.FirstOrDefault(ak => ak.Key == i).Value;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
                 }
             }
             return result;
@@ -419,7 +308,6 @@ namespace reliability
         {
             double result = 0;
 
-<<<<<<< HEAD
             for (int k = 1; k <= M; k++)
             {
                 for (int i = 1; i <= k + 1; i++)
@@ -429,17 +317,6 @@ namespace reliability
             }
 
             result += 1 / CStarK.Single(ck => ck.Key == 1).Value;
-=======
-            for (int k = 1; k < M; k++)
-            {
-                for (int i = 1; i < k + 1; i++)
-                {
-                    result += getMultiplyAStark(k) / CStarK.FirstOrDefault(ck => ck.Key == i).Value * getMultiplyCStarC(k, i);
-                }
-            }
-
-            result += 1 / CStarK.FirstOrDefault(ck => ck.Key == 1).Value;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
 
             return result * 1 / Lambda;
         }
@@ -447,15 +324,9 @@ namespace reliability
         private double getMultiplyAStark(int k)
         {
             double result = 1;
-<<<<<<< HEAD
             for (int j = 1; j <= k; j++)
             {
                 result *= AStarK.Single(ak => ak.Key == j).Value;
-=======
-            for (int j = 1; j < k; j++)
-            {
-                result *= AStarK.FirstOrDefault(ak => ak.Key == j).Value;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             }
             return result;
         }
@@ -463,29 +334,16 @@ namespace reliability
         private double getMultiplyCStarC(int k, int i)
         {
             double result = 1;
-<<<<<<< HEAD
             for (int j = 1; j <= k + 1; j++)
             {
                 if (j != i)
                 {
                     result *= CStarK.Single(ak => ak.Key == j).Value - CStarK.Single(ak => ak.Key == i).Value;
-=======
-            for (int j = 1; j < k + 1; j++)
-            {
-                if (j != i)
-                {
-                    result *= CStarK.FirstOrDefault(ak => ak.Key == j).Value - CStarK.FirstOrDefault(ak => ak.Key == i).Value;
->>>>>>> 487169efa03527261078c061938f5605ca22562a
                 }
             }
             return result;
         }
 
-<<<<<<< HEAD
-=======
-        #endregion
-
->>>>>>> 487169efa03527261078c061938f5605ca22562a
         public List<List<int>> generateXs()
         {
             List<string> qs = new List<string>();
@@ -510,11 +368,7 @@ namespace reliability
             foreach (String[] str in Help)
                 Variants = Variants == null ? str :
                     Variants.SelectMany(x => str, (x, y) => x + "  " + y).ToArray();
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> 487169efa03527261078c061938f5605ca22562a
             List<List<int>> array = new List<List<int>>();
             foreach (var variant in Variants)
             {
@@ -528,7 +382,6 @@ namespace reliability
             }
             return array;
         }
-<<<<<<< HEAD
 
         private List<double> calculatePT()
         {
@@ -588,9 +441,6 @@ namespace reliability
 
         #endregion
 
-=======
-        
->>>>>>> 487169efa03527261078c061938f5605ca22562a
     }
 
 }

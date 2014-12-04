@@ -38,7 +38,6 @@ C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\MainWindow.baml
 C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.g.resources
 C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.Properties.Resources.resources
 C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.csproj.GenerateResource.Cache
-<<<<<<< HEAD
 G:\нннн\Reliability\reliability\bin\Debug\reliability.exe.config
 G:\нннн\Reliability\reliability\obj\Debug\reliability.exe
 G:\нннн\Reliability\reliability\obj\Debug\reliability.pdb
@@ -66,6 +65,3 @@ D:\Dropbox\Магистратура\1 курс\Надёжность\проги\R
 D:\Dropbox\Магистратура\1 курс\Надёжность\проги\Reliability 02.12.2014\reliability\obj\Debug\reliability.g.resources
 D:\Dropbox\Магистратура\1 курс\Надёжность\проги\Reliability 02.12.2014\reliability\obj\Debug\reliability.Properties.Resources.resources
 D:\Dropbox\Магистратура\1 курс\Надёжность\проги\Reliability 02.12.2014\reliability\obj\Debug\reliability.csproj.GenerateResource.Cache
-D:\Dropbox\Магистратура\1 курс\Надёжность\проги\Reliability 02.12.2014\reliability\obj\Debug\reliability.csprojResolveAssemblyReference.cache
-=======
->>>>>>> 487169efa03527261078c061938f5605ca22562a
