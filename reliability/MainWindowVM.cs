@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -151,6 +152,7 @@ namespace reliability
                     a = N + M;
 
                     XArray = generateXs();
+                    
                     //2.
                     if (firstTypeSystem)
                     {
@@ -176,9 +178,10 @@ namespace reliability
                         Ck.Add(new KeyValuePair<int, double>(M + 1, Bk.Single(bk => bk.Key == M + 1).Value));
 
                         T = calculateT();
-                        //pt = 
                         calculatePT();
+                        ReportViewreControl reportViewreControl = new ReportViewreControl(ptResults, "TypeAResult");
                     }
+                    
                     if (secondTypeSystem)
                     {
                         for (int k = 1; k <= M; k++)
@@ -193,13 +196,10 @@ namespace reliability
                         CStarK.Add(new KeyValuePair<int, double>(M + 1, a - (M + 1) + 1));
 
                         T = calculateTSecond();
-                        //pt = 
                         calculatePTSecond();
+                        ReportViewreControl reportViewreControl = new ReportViewreControl(ptResults, "TypeBResult");
                     }
                     OnPropertyChanged("T");
-
-                    ReportViewreControl reportViewreControl = new ReportViewreControl(ptResults);
-                    //reportViewreControl.Show();
                 });
             }
         }
@@ -441,7 +441,7 @@ namespace reliability
             //File.WriteAllText("result1.txt", stringBuilder1.ToString());
             //File.WriteAllText("result2.txt", stringBuilder2.ToString());
         }
-
+        
         #endregion
 
     }
