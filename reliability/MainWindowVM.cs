@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Reporting.WinForms;
 
 namespace reliability
 {
@@ -22,11 +23,11 @@ namespace reliability
 
         public MainWindowVM()
         {
-            N = 10;
-            M = 2;
-            Q = 2;
-            R = 2;
-            Lambda = 0.5;
+            N = 12;
+            M = 3;
+            Q = 3;
+            R = 1;
+            Lambda = 0.1;
             OnPropertyChanged("N");
             OnPropertyChanged("Lambda");
             OnPropertyChanged("M");
@@ -179,7 +180,19 @@ namespace reliability
 
                         T = calculateT();
                         calculatePT();
-                        ReportViewreControl reportViewreControl = new ReportViewreControl(ptResults, "TypeAResult");
+                        
+                        LocalReport localReport = new LocalReport();
+                        localReport.ReportEmbeddedResource = "reliability.ResultReport.rdlc";
+                        localReport.DataSources.Add(new ReportDataSource("PtResult_DS", ptResults));
+                        if (File.Exists("TypeAResult" + ".xls"))
+                        {
+                            File.Delete("TypeAResult" + ".xls");
+                        }
+
+                        byte[] bytes = localReport.Render("Excel");
+                        FileStream fs = File.Create("TypeAResult" + ".xls");
+                        fs.Write(bytes, 0, bytes.Length);
+                        fs.Close();
                     }
                     
                     if (secondTypeSystem)
@@ -197,7 +210,19 @@ namespace reliability
 
                         T = calculateTSecond();
                         calculatePTSecond();
-                        ReportViewreControl reportViewreControl = new ReportViewreControl(ptResults, "TypeBResult");
+
+                        LocalReport localReport = new LocalReport();
+                        localReport.ReportEmbeddedResource = "reliability.ResultReport.rdlc";
+                        localReport.DataSources.Add(new ReportDataSource("PtResult_DS", ptResults));
+                        if (File.Exists("TypeBResult" + ".xls"))
+                        {
+                            File.Delete("TypeBResult" + ".xls");
+                        }
+
+                        byte[] bytes = localReport.Render("Excel");
+                        FileStream fs = File.Create("TypeBResult" + ".xls");
+                        fs.Write(bytes, 0, bytes.Length);
+                        fs.Close();
                     }
                     OnPropertyChanged("T");
                 });
