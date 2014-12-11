@@ -67,3 +67,7 @@ D:\Dropbox\Магистратура\1 курс\Надёжность\проги\R
 C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.csprojResolveAssemblyReference.cache
 C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\RdlCompile.cache
 C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\RdlCompile.compiled
+C:\Users\Artemy\Documents\Git\Reliability\reliability\bin\Debug\reliability.exe.manifest
+C:\Users\Artemy\Documents\Git\Reliability\reliability\bin\Debug\reliability.application
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.exe.manifest
+C:\Users\Artemy\Documents\Git\Reliability\reliability\obj\Debug\reliability.application
